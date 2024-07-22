@@ -1,0 +1,57 @@
+body {
+font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+background-color: #a28089;
+color: #000000;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+#container {
+background-color: #80A299;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px #000000;
+max-width: 800px;
+width: 100%;
+text-align: center;
+}
+button {
+padding: 10px 20px;
+font-size: 16px;
+margin: 10px;
+cursor: pointer;
+background-color: #ffb766;
+color: #000000;
+border: none;
+border-radius: 5px;
+}
+input {
+padding: 10px;
+margin: 10px;
+width: 80%;
+box-sizing: border-box;
+}
+table {
+width: 100%;
+margin-top: 20px;
+border-collapse: collapse;
+background-color: #fff;
+color: #333;
+}
+th, td {
+border: 1px solid #ddd;
+padding: 10px;
+text-align: left;
+}
+h1 {
+color: #000000;
+margin-bottom: 10px;
+}
+#budgetImage {
+width: 100%;
+border-radius: 10px;
+margin-bottom: 20px;
+}

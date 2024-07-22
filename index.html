@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budget Tracker</title>
+<link rel="stylesheet" href="styles/Colours.css">
+</head>
+<body>
+<div id="container">
+<h1>Budget Tracker</h1>
+<form id="budgetForm">
+<label for="income">Income:</label>
+<input type="number" id="income" name="income" step="0.01" required>
+<br>
+<label for="expense">Expense:</label>
+<input type="number" id="expense" name="expense" step="0.01" required>
+<br>
+<label for="category">Choose category:</label>
+<select id="category" name="category">
+<option value="food">Food</option>
+<option value="utilities">Utilities</option>
+<option value="entertainment">Entertainment</option>
+<option value="other">Other</option>
+</select>
+<br>
+<button type="button" onclick="addTransaction()">Add Transaction</button>
+</form>
+<h2>Transactions</h2>
+<table id="transactionTable">
+<thead>
+<tr>
+<th>Income</th>
+<th>Expense</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<h2>Expense Summary</h2>
+<table id="summaryTable">
+<tr>
+<th>Food</th>
+<th>Utilities</th>
+<th>Entertainment</th>
+<th>Other</th>
+</tr>
+<tr>
+<td id="foodExpense">0.00</td>
+<td id="utilitiesExpense">0.00</td>
+<td id="entertainmentExpense">0.00</td>
+<td id="otherExpense">0.00</td>
+</tr>
+<tr>
+<td colspan="4">Total Amount Spent: <span id="totalExpense">0.00</span></td>
+</tr>
+<tr>
+<td colspan="4">Remaining Balance: <span id="remainingBalance">0.00</span></td>
+</tr>
+</table>
+<script>
+function addTransaction() {
+// Retrieve values from the form
+var income = parseFloat(document.getElementById('income').value);
+var expense = parseFloat(document.getElementById('expense').value);
+var category = document.getElementById('category').value;
+// Add a new row to the transaction table
+var table =
+document.getElementById('transactionTable').getElementsByTagName('tbody')[0];
+var row = table.insertRow(table.rows.length);
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+var cell3 = row.insertCell(2);
+cell1.textContent = income.toFixed(2);
+cell2.textContent = expense.toFixed(2);
+cell3.textContent = category;
+// Update the expense summary
+updateExpenseSummary(income, expense, category);
+}
+function updateExpenseSummary(income, expense, category) {
+// Update category expenses
+var categoryExpenseElement = document.getElementById(category + 'Expense');
+var currentExpense = parseFloat(categoryExpenseElement.textContent);
+categoryExpenseElement.textContent = (currentExpense + expense).toFixed(2);
+// Update total amount spent
+var totalExpenseElement = document.getElementById('totalExpense');
+var currentTotalExpense = parseFloat(totalExpenseElement.textContent);
+totalExpenseElement.textContent = (currentTotalExpense + expense).toFixed(2);
+// Update remaining balance
+var remainingBalanceElement = document.getElementById('remainingBalance');
+remainingBalanceElement.textContent = (income - currentTotalExpense -
+expense).toFixed(2);
+}
+</script>
+</div>
+</body>
+</html>
