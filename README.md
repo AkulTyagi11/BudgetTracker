@@ -5,8 +5,11 @@ A simple and intuitive budget tracker built using HTML, CSS, and Python. This ap
 **Features:**
 
 1.) Add, edit, and delete income and expenses
+
 2.) Categorize transactions for better insights
+
 3.) Set budget limits and receive alerts when nearing them
+
 4.) Export transaction history for record-keeping
 
 **Technologies Used:**
